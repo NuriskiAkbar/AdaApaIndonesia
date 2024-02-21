@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +18,21 @@
         android:theme="@style/Theme.AdaApaIndonesia"
         tools:targetApi="31">
         <activity
-            android:name=".AllNewsActivity"
+            android:name=".view.OnboardingActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.WebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.AllNewsActivity"
             android:exported="false" />
         <activity
             android:name=".DetailNewsActivity"
@@ -24,13 +41,9 @@
             android:name=".ChoosedActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".view.MainActivity"
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

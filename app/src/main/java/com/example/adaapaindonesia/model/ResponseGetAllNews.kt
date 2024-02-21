@@ -1,4 +1,4 @@
-package com.example.adaapaindonesia
+package com.example.adaapaindonesia.model
 
 import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
@@ -7,13 +7,13 @@ import com.google.gson.annotations.SerializedName
 @Parcelize
 data class ResponseGetAllNews(
 
-	@field:SerializedName("totalResults")
+    @field:SerializedName("totalResults")
 	val totalResults: Int? = null,
 
-	@field:SerializedName("articles")
+    @field:SerializedName("articles")
 	val articles: List<ArticlesItem>? = null,
 
-	@field:SerializedName("status")
+    @field:SerializedName("status")
 	val status: String? = null
 ) : Parcelable
 
@@ -30,27 +30,27 @@ data class Source(
 @Parcelize
 data class ArticlesItem(
 
-	@field:SerializedName("publishedAt")
+    @field:SerializedName("publishedAt")
 	val publishedAt: String? = null,
 
-	@field:SerializedName("author")
+    @field:SerializedName("author")
 	val author: String? = null,
 
-	@field:SerializedName("urlToImage")
+    @field:SerializedName("urlToImage")
 	val urlToImage: String? = null,
 
-	@field:SerializedName("description")
+    @field:SerializedName("description")
 	val description: String? = null,
 
-	@field:SerializedName("source")
+    @field:SerializedName("source")
 	val source: Source? = null,
 
-	@field:SerializedName("title")
+    @field:SerializedName("title")
 	val title: String? = null,
 
-	@field:SerializedName("url")
+    @field:SerializedName("url")
 	val url: String? = null,
 
-	@field:SerializedName("content")
+    @field:SerializedName("content")
 	val content: String? = null
 ) : Parcelable

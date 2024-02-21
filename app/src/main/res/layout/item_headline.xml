@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="330dp"
-    android:layout_height="300dp"
-    android:layout_marginRight="8dp"
-    android:background="@drawable/bg_headline">
+    android:id="@+id/cl_item_headlines"
+    android:layout_width="300dp"
+    android:layout_height="280dp"
+    android:layout_marginRight="8dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -59,7 +59,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif"
-                android:text="8 September 2020" />
+                android:text="8 September 2020"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tv_headline_jam"
@@ -67,7 +68,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif"
-                android:text=" | 20:25" />
+                android:text=" | 20:25"
+                android:textSize="12sp" />
         </LinearLayout>
 
         <TextView
@@ -75,10 +77,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
+            android:maxLines="2"
+            android:ellipsize="end"
             android:text="Ini Merupakan Awal yang Baru untuk Melakukan Perubahan"
             android:textColor="#252525"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/tv_headline_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="Source : "
+                android:textColor="#252525"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_source_headlinenews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:text="detik.com"
+                android:textColor="#252525"
+                android:textSize="14sp" />
+        </LinearLayout>
 
     </LinearLayout>
 

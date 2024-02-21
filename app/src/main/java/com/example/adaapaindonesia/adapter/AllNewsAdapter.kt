@@ -1,4 +1,4 @@
-package com.example.adaapaindonesia
+package com.example.adaapaindonesia.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,13 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.adaapaindonesia.databinding.ItemHeadlineBinding
+import com.example.adaapaindonesia.model.ArticlesItem
+import com.example.adaapaindonesia.R
 import com.example.adaapaindonesia.databinding.ItemSemuaBeritaBinding
+import com.example.adaapaindonesia.model.ResponseGetTopHeadlines
 import java.text.SimpleDateFormat
 import java.util.Locale
 
 class AllNewsAdapter(
-    private val listHeadlineNews : List<ArticlesItem>
+    private var listHeadlineNews : List<ArticlesItem>
 ): RecyclerView.Adapter<AllNewsAdapter.AllNewsViewHolder>() {
 
     interface OnItemClickListener {
@@ -52,13 +54,14 @@ class AllNewsAdapter(
             }
 
             binding.tvSemuaBeritaTitle.text = articlesItem.title
+            binding.tvSourceAllnews.text = articlesItem.source?.name ?: "unknown"
         }
     }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): AllNewsAdapter.AllNewsViewHolder {
+    ): AllNewsViewHolder {
         val view = ItemSemuaBeritaBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return AllNewsViewHolder(view)
     }
@@ -68,6 +71,12 @@ class AllNewsAdapter(
         holder.itemView.setOnClickListener{
             onItemClickListener?.invoke(position)
         }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun addData(newData : List<ArticlesItem>){
+        listHeadlineNews = listHeadlineNews + newData
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int = listHeadlineNews.size

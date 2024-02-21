@@ -1,4 +1,4 @@
-package com.example.adaapaindonesia
+package com.example.adaapaindonesia.view
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +9,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.adaapaindonesia.adapter.AllNewsAdapter
 import com.example.adaapaindonesia.databinding.ActivityAllNewsBinding
+import com.example.adaapaindonesia.model.ArticlesItem
 import com.example.adaapaindonesia.retrofit.ApiService
 import com.example.adaapaindonesia.retrofit.Endpoint
 import kotlinx.coroutines.CoroutineScope
@@ -75,9 +77,7 @@ class AllNewsActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val callApiGetAllNews = async { ApiService.getInstance().create(Endpoint::class.java).getAllNews(query,10,
-                   page, Endpoint.API_KEY
-                ) }
+                val callApiGetAllNews = async { ApiService.getInstance().create(Endpoint::class.java).getAllNews() }
 
                 val Response = callApiGetAllNews.await()
 
@@ -140,9 +140,7 @@ class AllNewsActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val callApiGetAllNews = async { ApiService.getInstance().create(Endpoint::class.java).getAllNews(query,10,
-                    page, Endpoint.API_KEY
-                ) }
+                val callApiGetAllNews = async { ApiService.getInstance().create(Endpoint::class.java).getAllNews() }
 
                 val Response = callApiGetAllNews.await()
 

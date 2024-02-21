@@ -4,30 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp"
-    android:background="#EFEFEF"
-    tools:context=".view.MainActivity">
+    tools:context=".view.WebViewActivity">
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </FrameLayout>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/baseline_keyboard_backspace_24"
+        app:menu="@menu/navigation_menu_saved_news"/>
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/navigation_menu"
-        tools:ignore="MissingConstraints"
-        app:labelVisibilityMode="labeled"/>
-
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
